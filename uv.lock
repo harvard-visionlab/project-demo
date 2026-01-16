@@ -2177,8 +2177,8 @@ wheels = [
 
 [[package]]
 name = "visionlab-datasets"
-version = "0.3.0"
-source = { git = "https://github.com/harvard-visionlab/datasets.git#693c9e2c07205926ea92ee89bcd724da5d730152" }
+version = "0.3.1"
+source = { git = "https://github.com/harvard-visionlab/datasets.git#97868925bb2b6b40bc0009342405cb0fdc1c9b02" }
 dependencies = [
     { name = "litdata" },
     { name = "numpy" },
