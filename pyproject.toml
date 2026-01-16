@@ -1,5 +1,5 @@
 [project]
-name = "project-template"
+name = "project-demo"
 version = "0.1.0"
 description = "VisionLab project template (uv + CUDA-ready torch)"
 readme = "README.md"
@@ -50,9 +50,9 @@ dev = [
 
 # --- setuptools config (explicit map + explicit package list) ---
 [tool.setuptools]
-# We map the top-level import 'visionlab.project_template' to your folder 'project_template'
-package-dir = { "visionlab.project_template" = "project_template" }
-packages = ["visionlab.project_template"]
+# We map the top-level import 'visionlab.project_template' to your folder 'project_demo'
+package-dir = { "visionlab.project_demo" = "project_demo" }
+packages = ["visionlab.project_demo"]
 
 [build-system]
 requires = ["setuptools>=68", "wheel"]
