@@ -1,0 +1,59 @@
+[project]
+name = "project-template"
+version = "0.1.0"
+description = "VisionLab project template (uv + CUDA-ready torch)"
+readme = "README.md"
+requires-python = "==3.11.*"
+# Your import will be:  `from visionlab.project_template import ...`
+# (Setuptools install is editable by default with `uv sync`.)
+dependencies = [
+    "numpy",
+    "tqdm",
+    # Torch stack (resolve exact versions in the lockfile)
+    "torch>=2.7.0",
+    "torchvision>=0.22.0",
+    "torchaudio>=2.7.0",
+    "timm@git+https://github.com/huggingface/pytorch-image-models.git",
+             
+    # Core scientific stack
+    "matplotlib",
+    "seaborn",        
+    "scikit-learn",
+    "pandas",
+    "pyarrow",
+    
+    # remote storage
+    "s5cmd",
+    
+    # image utils
+    "opencv-python",
+    "PyTurboJPEG@git+https://github.com/lilohuang/PyTurboJPEG.git",
+    
+    # remote datasets
+    "litdata@git+https://github.com/Lightning-AI/litData.git",  
+    "visionlab-datasets@git+https://github.com/harvard-visionlab/datasets.git",    
+    
+]
+
+[tool.uv]
+# keep default in-project venv; no need to set project-env
+
+[dependency-groups]
+dev = [
+    "pytest", # Test runner (uv run pytest -q)
+    "pytest-xdist", # Run tests in parallel (great for multi-core machines)
+    "ruff", # Linter (uv run ruff check .)
+    "ipykernel", # jupyter kernels
+    "jupyterlab", # uv run jupyter lab
+    "nbstripout", # automatically drop cell outputs from commit
+]
+
+# --- setuptools config (explicit map + explicit package list) ---
+[tool.setuptools]
+# We map the top-level import 'visionlab.project_template' to your folder 'project_template'
+package-dir = { "visionlab.project_template" = "project_template" }
+packages = ["visionlab.project_template"]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
